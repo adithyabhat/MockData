@@ -13,10 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let mockJsonData = MockDataManager.shared.json(forEndPoint: .getUser) as? [String: Any] {
-            let user = User(JSON: mockJsonData)
-            print(user)
-        }
+        #if DEBUG
+            if let mockJsonData = MockDataManager.shared.json(forEndPoint: .getUser) as? [String: Any] {
+                let user = User(JSON: mockJsonData)
+                print(user)
+            }
+        #endif
     }
 
 
